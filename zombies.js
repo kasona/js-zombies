@@ -114,6 +114,10 @@ function Player(name, health, strength, speed) {
     return this._pack;
   };
 
+  this.getMaxHealth = function() {
+    return this._maxHealth;
+  };
+
 }
 /**
  * Player Class Method => checkPack()
