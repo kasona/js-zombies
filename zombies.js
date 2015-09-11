@@ -104,11 +104,17 @@ function Player(name, health, strength, speed) {
   this.isAlive = true;
   this.equipped = false;
   Item.call(this, name);
+
+  //private
+
+  this._pack = []; // default value set to empty array
+  this._maxHealth = health; //l default value set to 'health'
+
+  this.getPack = function () {
+    return this._pack;
+  };
+
 }
-
-
-
-
 /**
  * Player Class Method => checkPack()
  * -----------------------------
@@ -120,9 +126,8 @@ function Player(name, health, strength, speed) {
  *
  * @name checkPack
  */
-function checkPack() {
 
-}
+
 
 /**
  * Player Class Method => takeItem(item)
