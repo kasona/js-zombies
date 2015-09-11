@@ -28,7 +28,6 @@ function Item(name) {
  */
 
 function Weapon(name, damage) {
-  Item instanceof Weapon;
   this.damage = damage;
   Item.call(this, name); // calls Item func's name to be used in Wep func.
 
@@ -38,7 +37,11 @@ function Weapon(name, damage) {
  * Weapon Extends Item Class
  * -----------------------------
  */
-
+Weapon.prototype = Object.create(Item.prototype, {
+  constructor : {
+    value : Item
+  }
+});
 
 
 /**
@@ -57,13 +60,20 @@ function Weapon(name, damage) {
  * @property {number} energy
  */
 
-
+function Food(name, energy) {
+  this.energy = energy;
+  Item.call(this, name);
+}
 /**
  * Food Extends Item Class
  * -----------------------------
  */
 
-
+Food.prototype = Object.create(Item.prototype, {
+  constructor : {
+    value : Item
+  }
+});
 
 /**
  * Class => Player(name, health, strength, speed)
