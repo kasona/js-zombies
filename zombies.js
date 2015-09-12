@@ -139,10 +139,10 @@ function Player(name, health, strength, speed) {
   this.takeItem = function(item) {
     var bag = this._pack;
 
-    if (bag.length >= 3) {
+    if (bag.length >= 3) { // bag is full
       console.log('Bag is full, item could not be stored');
       return false;
-    } else if (bag.length < 3) {
+    } else if (bag.length < 3) { // bag has room, take item
       bag.push(item);
       console.log(this.name, item);
       return true;
@@ -226,12 +226,12 @@ function Player(name, health, strength, speed) {
 
   Player.prototype.equip = function (itemToEquip) {
   var pack = this.getPack(); // define pack
-  if (itemToEquip instanceof Weapon && pack.indexOf(itemToEquip) > -1) {
+  if (itemToEquip instanceof Weapon && pack.indexOf(itemToEquip) > -1) { // check if item is a wep & if its in the bag ( indexOf -1 means nothing in bag )
     if (this.equipped) {
-      pack.splice(pack.indexOf(itemToEquip), 1);
+      pack.splice(pack.indexOf(itemToEquip), 1); // swapping. put current equip in bag, then equip item from bag
       this.takeItem(this.equipped);
       this.equipped = itemToEquip;
-    } else if (this.equipped === false) {
+    } else if (this.equipped === false) { // nothing equipped, equip item.
       pack.splice(pack.indexOf(itemToEquip), 1);
       this.equipped = itemToEquip;
     }
