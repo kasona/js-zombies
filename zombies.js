@@ -108,7 +108,7 @@ function Player(name, health, strength, speed) {
   //private
 
   this._pack = []; // default value set to empty array
-  this._maxHealth = health; //l default value set to 'health'
+  this._maxHealth = health; //default value set to 'health'
 
   this.getPack = function () {
     return this._pack;
@@ -203,7 +203,7 @@ function Player(name, health, strength, speed) {
     var printPack = this.getPack();
     console.log('You have: ');
     for (var i = 0; i < printPack.length; i++) {
-      console.log(printPack[i]);
+      console.log(printPack[i]); //just list items.
     }
   };
 
